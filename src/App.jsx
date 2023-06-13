@@ -1,9 +1,12 @@
 // import { lazy, Suspense } from 'react';
 // const LazyComp = lazy(() => import('./components/lazy-loading/justComponents/Comp2_Lazy.jsx'));
-import Comp1_Lazy from './components/lazy-loading/justComponents/Comp1_Lazy';
+// import Comp1_Lazy from './components/lazy-loading/justComponents/Comp1_Lazy';
 import './App.css';
-import ContextConsumer from './components/context/properMethod/ContextConsumer';
-import { ContextProvider } from './components/context/properMethod/ContextProvider';
+// import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
+// import ContextConsumer from './components/context/properMethod/ContextConsumer';
+// import { ContextProvider } from './components/context/properMethod/ContextProvider';
+// import ErrorExample from './components/errorBoundary/ErrorExample';
+import ModalContainer from './components/portals/ModalContainer';
 // import Counter1_State from './components/Counter1_State.jsx';
 // import Counter2_State from './components/Counter2_State.jsx';
 // import Counter3_State from './components/Counter3_State.jsx';
@@ -51,12 +54,29 @@ function App() {
 			<Suspense fallback={'Loading Comp2...'}>
 				<LazyComp />
 			</Suspense>
-			*/}
 			<ContextProvider>
 				<ContextConsumer />
 			</ContextProvider>
+			<ErrorBoundary>
+				<ErrorExample hero="Superman" />
+			</ErrorBoundary>
+			<ErrorBoundaryWrapper childsProp={'Batman'} />
+			<ErrorBoundaryWrapper childsProp={'Joker'} />
+			<ErrorBoundary>
+				<ErrorExample hero="Joker" />
+			</ErrorBoundary>
+			*/}
+			<ModalContainer />
 		</div>
 	);
 }
 
+// function ErrorBoundaryWrapper({ childsProp }) {
+// 	// a wrapper like this can also be used(best to use it inside example file and export it after wrapping it with ErrorBoundary) to reduce repetitive ErrorBoundary writings
+// 	return (
+// 		<ErrorBoundary>
+// 			<ErrorExample hero={childsProp} />
+// 		</ErrorBoundary>
+// 	);
+// }
 export default App;

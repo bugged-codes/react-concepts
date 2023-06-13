@@ -1,3 +1,4 @@
+// FIXME - write redux for react
 /* eslint-disable no-unused-vars */
 // Redux in simple javascript app
 // installed plain redux library from npm
